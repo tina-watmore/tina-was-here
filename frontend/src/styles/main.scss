@@ -1,5 +1,6 @@
 // varibles 
 $base-text-color: #212121;
+$secondary-text-color: #6d6d6d;
 $base-bg-color: #f7f5f2;
 
 // general 
@@ -41,7 +42,11 @@ body {
             z-index: -1;
         }
 
-    }        
+    }    
+    
+    p {
+        color: $secondary-text-color;
+    }
 }
 
 // header
@@ -167,13 +172,33 @@ main {
     margin-top: 60px;
 }
 
-
 // home page
 .home-page {
-    main  {
-        .contect-section {
-            padding: 30px 0;
-        }
+    .content-section {
+        padding: 30px 20px;
+        height: calc(100vh - 60px);
+    }
+    .page-intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        .circle-image {
+            margin-top:-50px;
+            width: 180px;
+        }    
+        .summary { 
+            margin-top: 10px;          
+            .page-title {
+                font-size: 40px;
+                margin-bottom: 14px;
+            }
+            margin-top: 20px;
+            letter-spacing: 1px;
+            line-height: 1.8;
+            font-size: 16px;
+        }    
     }
 }
 
