@@ -1,3 +1,7 @@
+// varibles 
+$base-text-color: #212121;
+$base-bg-color: #f7f5f2;
+
 // general 
 body {
     font-family: "Inter", sans-serif;
@@ -5,11 +9,172 @@ body {
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
+    padding: 0;
+    margin: 0;
+
+    // mobile nav open
+    #root::before {
+        content: '';
+        display: block;
+        position:absolute;
+        width: 100%; 
+        height: 100%; 
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($base-bg-color,1); 
+        z-index: 1;             
+        cursor: pointer;      
+        transition: all 0.4s; 
+        opacity: 0;
+    }    
+
+    &.nav-open {
+        overflow: hidden;
+        position:relative;
+        #root::before {
+            opacity: 1;
+        }
+
+        main {
+            z-index: -1;
+        }
+
+    }        
 }
 
 // header
 header {
-    background-color: rgba(247, 245, 242, 0.35);
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .header-bar {
+        width: 100%;
+        justify-content: space-between;
+        backdrop-filter: blur(5px);
+        background-color: rgba($base-bg-color, 0.8);
+        height:60px;
+        display: flex;
+        align-items: center;   
+        
+        .header-logo {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $base-text-color;
+            font-weight: 500;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+        }    
+        .navbar-toggle {
+            margin-right: 10px;
+            background:none;
+            position: relative;
+            border: none;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+                span {
+                    display: block;
+                    height: 1px;
+                    width: 20px;
+                    background-color: #000;
+                    position: absolute;
+                    transition: all 0.3s ease;
+                    opacity: 1;
+                }
+                span:nth-child(1) {
+                    top:14px;            
+                }
+                span:nth-child(2) {
+                    top:20px;                        
+                }        
+                span:nth-child(3) {
+                    top: 26px;
+                }
+            &.open {
+                span:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 20px;
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: 20px;
+                }   
+            }
+        }            
+    }
+
+    .navbar {
+        backdrop-filter: blur(5px);
+        background-color: rgba($base-bg-color, 0.8);
+        position: absolute;
+        top: 60px;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        padding: 24px 0 28px;
+        transition: all 0.3s ease;
+
+        a {
+            text-decoration: none;
+            color: $base-text-color;
+            letter-spacing: 1px;
+            font-weight: 500;
+            padding: 9px  40px;
+            display: block;     
+            text-align: right;       
+        }
+    }       
+
+    &.open {
+        .header-bar {           
+            .navbar-toggle {
+                span:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 20px;
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: 20px;
+                } 
+            }            
+        }    
+        
+        .navbar {
+            right: 0;
+        }
+    }
+   
+}
+
+// main 
+main {
+    margin-top: 60px;
+}
+
+
+// home page
+.home-page {
+    main  {
+        .contect-section {
+            padding: 30px 0;
+        }
+    }
 }
 
 // about
