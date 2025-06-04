@@ -16,8 +16,7 @@ export const Home = () => {
                 <img className="circle-image" src={`${import.meta.env.BASE_URL}tina-pic-01.png`}  alt="Tina" />
                 <div className="summary">
                     <h1 className="page-title">Hi, I'm Tina</h1>
-                    <p>A passion front end web developer based in Sydney, Australia.</p>
-                    <p>I enjoy bringing a slick design to life with clean quality code.</p>
+                    <p>A passion front end web developer based in Sydney, Australia. I enjoy bringing a slick design to life with clean quality code.</p>
                 </div>
             </div>
             <div className="content-section">

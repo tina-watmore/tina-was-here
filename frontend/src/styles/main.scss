@@ -189,7 +189,8 @@ main {
             width: 180px;
         }    
         .summary { 
-            margin-top: 10px;          
+            margin: 10px;    
+            max-width: 375px;      
             .page-title {
                 font-size: 40px;
                 margin-bottom: 14px;
