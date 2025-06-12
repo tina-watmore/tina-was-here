@@ -13,16 +13,210 @@ export const Home = () => {
     return (
         <main>
             <div className="content-section page-intro">
-                <img className="circle-image" src={`${import.meta.env.BASE_URL}tina-pic-01.png`}  alt="Tina" />
-                <div className="summary">
-                    <h1 className="page-title">Hi, I'm Tina</h1>
-                    <p>A passion front end web developer based in Sydney, Australia. I enjoy bringing a slick design to life with clean quality code.</p>
+                <div className="container">
+                    <img className="circle-image" src={`${import.meta.env.BASE_URL}tina-pic-01.png`}  alt="Tina" />
+                    <div className="summary">
+                        <h1 className="page-title">Hi, I'm Tina</h1>
+                        <p>
+                            A front-end web developer based in Sydney, Australia, I’m passionate about transforming great 
+                            design into responsive, high-quality user experiences through clean and efficient code.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div className="content-section">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum volutpat orci quis ornare vulputate. Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. Morbi luctus urna sit amet purus tristique, et aliquam erat tempus. Proin at mi eu eros elementum accumsan ac nec ipsum. Integer semper magna a hendrerit fringilla. Donec pharetra dapibus auctor. Fusce placerat non lacus sit amet finibus. Cras et felis a odio venenatis gravida. Fusce et viverra nisl. Proin in orci et elit fermentum rutrum vel eu risus. Ut in nibh turpis. Quisque gravida risus eu ante egestas ultricies. Etiam a condimentum nunc, vitae porta odio. Fusce euismod, sem in malesuada eleifend, justo massa volutpat neque, quis scelerisque eros tellus dignissim lacus.</p>
-                <p>Aliquam erat volutpat. Sed fermentum eros sed purus maximus, nec commodo diam euismod. Mauris vel urna a odio luctus euismod quis eget massa. Aenean sit amet dolor at odio rutrum commodo auctor sit amet sapien. Suspendisse massa sem, pretium quis dictum in, vestibulum blandit enim. Aliquam bibendum ex arcu, sit amet congue ante lacinia sed. Sed iaculis commodo dignissim. Sed id egestas urna.</p>
+                <h2 className="section-title">Recent Work</h2>
+                <h4 className="rich-text-subtitle">
+                    <span className="highlight">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. <span className="highlight">Vestibulum volutpat orci quis ornare vulputate.</span> 
+                    Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. 
+                </h4>
+                <ul className="project-list">
+                    <li className="project-card">
+                        <a href="#">
+                            <img 
+                                src={`${import.meta.env.BASE_URL}/project-images/0001.jpg`} 
+                                alt="This is a project name" 
+                                className="project-img" 
+                            />
+                            <div className="project-info">
+                                <h3 className="project-name">This is a project name</h3>
+                                <p className="project-details">Corporate website</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li className="project-card">
+                        <a href="#">
+                            <img 
+                                src={`${import.meta.env.BASE_URL}/project-images/0002.jpg`} 
+                                alt="This is a project name" 
+                                className="project-img" 
+                            />
+                            <div className="project-info">
+                                <h3 className="project-name">This is a project name</h3>
+                                <p className="project-details">Charity website</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li className="project-card">
+                        <a href="#">
+                            <img 
+                                src={`${import.meta.env.BASE_URL}/project-images/0003.jpg`} 
+                                alt="This is a project name" 
+                                className="project-img" 
+                            />
+                            <div className="project-info">
+                                <h3 className="project-name">This is a project name</h3>
+                                <p className="project-details">Accountant website</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li className="project-card">
+                        <a href="#">
+                            <img 
+                                src={`${import.meta.env.BASE_URL}/project-images/0004.jpg`} 
+                                alt="This is a project name" 
+                                className="project-img" 
+                            />
+                            <div className="project-info">
+                                <h3 className="project-name">This is a project name</h3>
+                                <p className="project-details">Event website</p>
+                            </div>
+                        </a>
+                    </li>                                                            
+                </ul>
+                <div className="btn-container">
+                    <a href="#" className="styled-lnk">
+                        <img className="fa-icon" src={`${import.meta.env.BASE_URL}/icons/arrow-right-solid.svg`} alt="" />
+                        <span>View all projects</span>
+                    </a>
+                </div>
             </div>
+            <div className="content-section">
+                <h2 className="section-title">Hobbie Projects</h2>
+                <h4 className="rich-text-subtitle">
+                    <span className="highlight">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. <span className="highlight">Vestibulum volutpat orci quis ornare vulputate.</span> 
+                    Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. 
+                </h4>   
+                <ul className="hobbie-list">
+                    <li className="item">
+                        <a href="#">
+                            <div className='img-container'>
+                                <img 
+                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0001.png`} 
+                                    alt="This is a hobbie name" 
+                                    className="hobbie-img" 
+                                />
+                            </div>
+                            <div className="hobbie-info">
+                                <h3 className="hobbie-name">This is a hobbie name</h3>
+                                <p className="hobbie-details">
+                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
+                                     eget sed purus. Sed sodales ultrices eleifend.
+                                </p>
+                            </div>
+                        </a>
+                    </li>   
+                    <li className="item">
+                        <a href="#">
+                            <div className='img-container'>
+                                <img 
+                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0002.png`} 
+                                    alt="This is a hobbie name" 
+                                    className="hobbie-img" 
+                                />
+                            </div>
+                            <div className="hobbie-info">
+                                <h3 className="hobbie-name">This is a hobbie name</h3>
+                                <p className="hobbie-details">
+                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
+                                     eget sed purus. Sed sodales ultrices eleifend.
+                                </p>
+                            </div>
+                        </a>
+                    </li> 
+                    <li className="item">
+                        <a href="#">
+                            <div className='img-container'>
+                                <img 
+                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0003.png`} 
+                                    alt="This is a hobbie name" 
+                                    className="hobbie-img" 
+                                />
+                            </div>
+                            <div className="hobbie-info">
+                                <h3 className="hobbie-name">This is a hobbie name</h3>
+                                <p className="hobbie-details">
+                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
+                                     eget sed purus. Sed sodales ultrices eleifend.
+                                </p>
+                            </div>
+                        </a>
+                    </li>                                          
+                </ul>             
+            </div>
+            <div className="content-section">
+                <h2 className="section-title">Other interests</h2>
+                <h4 className="rich-text-subtitle">
+                    <span className="highlight">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. <span className="highlight">Vestibulum volutpat orci quis ornare vulputate.</span> 
+                    Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. 
+                </h4>   
+                <ul className="interests-list">
+                    <li className="item">
+                        <a href="#">
+                            <div className='img-container'>
+                                <img 
+                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0001.png`} 
+                                    alt="This is a hobbie name" 
+                                    className="hobbie-img" 
+                                />
+                            </div>
+                            <div className="hobbie-info">
+                                <h3 className="hobbie-name">Video Editing</h3>
+                                <p className="hobbie-details">
+                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
+                                     eget sed purus. Sed sodales ultrices eleifend.
+                                </p>
+                            </div>
+                        </a>
+                    </li>   
+                    <li className="item">
+                        <a href="#">
+                            <div className='img-container'>
+                                <img 
+                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0002.png`} 
+                                    alt="This is a hobbie name" 
+                                    className="hobbie-img" 
+                                />
+                            </div>
+                            <div className="hobbie-info">
+                                <h3 className="hobbie-name">Photography</h3>
+                                <p className="hobbie-details">
+                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
+                                     eget sed purus. Sed sodales ultrices eleifend.
+                                </p>
+                            </div>
+                        </a>
+                    </li> 
+                    <li className="item">
+                        <a href="#">
+                            <div className='img-container'>
+                                <img 
+                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0003.png`} 
+                                    alt="This is a hobbie name" 
+                                    className="hobbie-img" 
+                                />
+                            </div>
+                            <div className="hobbie-info">
+                                <h3 className="hobbie-name">Travel</h3>
+                                <p className="hobbie-details">
+                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
+                                     eget sed purus. Sed sodales ultrices eleifend.
+                                </p>
+                            </div>
+                        </a>
+                    </li>                                          
+                </ul>             
+            </div>            
         </main>
     );
 }
