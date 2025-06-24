@@ -1,6 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import SkillsCarousel from '../components/SkillsCarousel';
+import InterestCarousel from '../components/InterestCarousel';
+import { fetchCommercialProjects, fetchHobbieProjects } from '../services/dataService';
 
 export const Home = () => {
+    const [commercialProjects, setCommercialProjects] = useState([]);
+    const [hobbieProjects, setHobbieProjects] = useState([]);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         document.body.classList.add('home-page');
@@ -9,6 +16,21 @@ export const Home = () => {
             document.body.classList.remove('home-page');
         }
     }, []);
+
+   useEffect(() => {
+        getCommercialProjectsData();
+        getHobbieProjectsData();
+    }, []);   
+
+    const getCommercialProjectsData = async () => {
+        const data = await fetchCommercialProjects();
+        setCommercialProjects(data);
+    };    
+
+    const getHobbieProjectsData = async () => {
+        const data = await fetchHobbieProjects();
+        setHobbieProjects(data);
+    };  
 
     return (
         <main>
@@ -30,66 +52,39 @@ export const Home = () => {
                     <span className="highlight">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. <span className="highlight">Vestibulum volutpat orci quis ornare vulputate.</span> 
                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. 
                 </h4>
-                <ul className="project-list">
-                    <li className="project-card">
-                        <a href="#">
-                            <img 
-                                src={`${import.meta.env.BASE_URL}/project-images/0001.jpg`} 
-                                alt="This is a project name" 
-                                className="project-img" 
-                            />
-                            <div className="project-info">
-                                <h3 className="project-name">This is a project name</h3>
-                                <p className="project-details">Corporate website</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className="project-card">
-                        <a href="#">
-                            <img 
-                                src={`${import.meta.env.BASE_URL}/project-images/0002.jpg`} 
-                                alt="This is a project name" 
-                                className="project-img" 
-                            />
-                            <div className="project-info">
-                                <h3 className="project-name">This is a project name</h3>
-                                <p className="project-details">Charity website</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className="project-card">
-                        <a href="#">
-                            <img 
-                                src={`${import.meta.env.BASE_URL}/project-images/0003.jpg`} 
-                                alt="This is a project name" 
-                                className="project-img" 
-                            />
-                            <div className="project-info">
-                                <h3 className="project-name">This is a project name</h3>
-                                <p className="project-details">Accountant website</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li className="project-card">
-                        <a href="#">
-                            <img 
-                                src={`${import.meta.env.BASE_URL}/project-images/0004.jpg`} 
-                                alt="This is a project name" 
-                                className="project-img" 
-                            />
-                            <div className="project-info">
-                                <h3 className="project-name">This is a project name</h3>
-                                <p className="project-details">Event website</p>
-                            </div>
-                        </a>
-                    </li>                                                            
-                </ul>
-                <div className="btn-container">
-                    <a href="#" className="styled-lnk">
-                        <img className="fa-icon" src={`${import.meta.env.BASE_URL}/icons/arrow-right-solid.svg`} alt="" />
-                        <span>View all projects</span>
-                    </a>
-                </div>
+                {
+                    commercialProjects.length ? (
+                        <>
+                            <ul className="project-list">
+                                {
+                                    commercialProjects.map((project) => (
+                                        <li className="project-card" key={project.id}>
+                                            <a href="#">
+                                                <img 
+                                                    src={`${import.meta.env.BASE_URL}${project.image_path}`} 
+                                                    alt={project.title} 
+                                                    className="project-img" 
+                                                />
+                                                <div className="project-info">
+                                                    <h3 className="project-name">{project.title}</h3>
+                                                    <p className="project-details">{project.description}</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    ))
+                                }                                                    
+                            </ul>     
+                            <div className="btn-container">
+                                <a href="#" className="styled-lnk">
+                                    <img className="fa-icon" src={`${import.meta.env.BASE_URL}/icons/arrow-right-solid.svg`} alt="" />
+                                    <span>View all commercial projects</span>
+                                </a>
+                            </div>    
+                        </>                                       
+                    ) : (
+                        <p>No commercial projects</p>                          
+                    )
+                }
             </div>
             <div className="content-section">
                 <h2 className="section-title">Hobbie Projects</h2>
@@ -97,62 +92,47 @@ export const Home = () => {
                     <span className="highlight">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. <span className="highlight">Vestibulum volutpat orci quis ornare vulputate.</span> 
                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. 
                 </h4>   
-                <ul className="hobbie-list">
-                    <li className="item">
-                        <a href="#">
-                            <div className='img-container'>
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0001.png`} 
-                                    alt="This is a hobbie name" 
-                                    className="hobbie-img" 
-                                />
-                            </div>
-                            <div className="hobbie-info">
-                                <h3 className="hobbie-name">This is a hobbie name</h3>
-                                <p className="hobbie-details">
-                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
-                                     eget sed purus. Sed sodales ultrices eleifend.
-                                </p>
-                            </div>
-                        </a>
-                    </li>   
-                    <li className="item">
-                        <a href="#">
-                            <div className='img-container'>
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0002.png`} 
-                                    alt="This is a hobbie name" 
-                                    className="hobbie-img" 
-                                />
-                            </div>
-                            <div className="hobbie-info">
-                                <h3 className="hobbie-name">This is a hobbie name</h3>
-                                <p className="hobbie-details">
-                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
-                                     eget sed purus. Sed sodales ultrices eleifend.
-                                </p>
-                            </div>
-                        </a>
-                    </li> 
-                    <li className="item">
-                        <a href="#">
-                            <div className='img-container'>
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0003.png`} 
-                                    alt="This is a hobbie name" 
-                                    className="hobbie-img" 
-                                />
-                            </div>
-                            <div className="hobbie-info">
-                                <h3 className="hobbie-name">This is a hobbie name</h3>
-                                <p className="hobbie-details">
-                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
-                                     eget sed purus. Sed sodales ultrices eleifend.
-                                </p>
-                            </div>
-                        </a>
-                    </li>                                          
-                </ul>             
+                {
+                    hobbieProjects.length ? (
+                        <>
+                            <ul className="hobbie-list">
+                                {
+                                    hobbieProjects.map((hobbie) => (
+                                        <li className="item">
+                                            <a href="#">
+                                                <div className='img-container'>
+                                                    <img 
+                                                        src={`${import.meta.env.BASE_URL}${hobbie.image_path}`} 
+                                                        alt={hobbie.title} 
+                                                        className="hobbie-img" 
+                                                    />
+                                                </div>
+                                                <div className="hobbie-info">
+                                                    <h3 className="hobbie-name">{hobbie.title}</h3>
+                                                    <p className="hobbie-details">
+                                                        {hobbie.description}
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </li>   
+                                    ))                                
+                                }                                  
+                            </ul>    
+                            <div className="btn-container">
+                                <a href="#" className="styled-lnk">
+                                    <img className="fa-icon" src={`${import.meta.env.BASE_URL}/icons/arrow-right-solid.svg`} alt="" />
+                                    <span>View all hobbie projects</span>
+                                </a>
+                            </div> 
+                        </>                        
+                    )  : (
+                         <p>No hobbie projects</p>  
+                    )
+                }        
+            </div>
+            <div className="content-section">
+                <h2 className="section-title">Skills</h2>
+                <SkillsCarousel />
             </div>
             <div className="content-section">
                 <h2 className="section-title">Other interests</h2>
@@ -160,62 +140,7 @@ export const Home = () => {
                     <span className="highlight">Lorem ipsum dolor sit amet,</span> consectetur adipiscing elit. <span className="highlight">Vestibulum volutpat orci quis ornare vulputate.</span> 
                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin eget sed purus. Sed sodales ultrices eleifend. 
                 </h4>   
-                <ul className="interests-list">
-                    <li className="item">
-                        <a href="#">
-                            <div className='img-container'>
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0001.png`} 
-                                    alt="This is a hobbie name" 
-                                    className="hobbie-img" 
-                                />
-                            </div>
-                            <div className="hobbie-info">
-                                <h3 className="hobbie-name">Video Editing</h3>
-                                <p className="hobbie-details">
-                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
-                                     eget sed purus. Sed sodales ultrices eleifend.
-                                </p>
-                            </div>
-                        </a>
-                    </li>   
-                    <li className="item">
-                        <a href="#">
-                            <div className='img-container'>
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0002.png`} 
-                                    alt="This is a hobbie name" 
-                                    className="hobbie-img" 
-                                />
-                            </div>
-                            <div className="hobbie-info">
-                                <h3 className="hobbie-name">Photography</h3>
-                                <p className="hobbie-details">
-                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
-                                     eget sed purus. Sed sodales ultrices eleifend.
-                                </p>
-                            </div>
-                        </a>
-                    </li> 
-                    <li className="item">
-                        <a href="#">
-                            <div className='img-container'>
-                                <img 
-                                    src={`${import.meta.env.BASE_URL}/hobbie-images/0003.png`} 
-                                    alt="This is a hobbie name" 
-                                    className="hobbie-img" 
-                                />
-                            </div>
-                            <div className="hobbie-info">
-                                <h3 className="hobbie-name">Travel</h3>
-                                <p className="hobbie-details">
-                                     Curabitur bibendum vel nulla id efficitur. Nullam vel nisi sed est tincidunt sollicitudin 
-                                     eget sed purus. Sed sodales ultrices eleifend.
-                                </p>
-                            </div>
-                        </a>
-                    </li>                                          
-                </ul>             
+                <InterestCarousel />
             </div>            
         </main>
     );

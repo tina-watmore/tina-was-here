@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": 1,
+    "title": "Snoopex",
+    "tags": ["Small Business"],
+    "role": "Sole Developer",
+    "tech": ["React", "Javascript", "SASS"],
+    "description": "Built and maintained website for a small business owner.",
+    "image_path": "/project-images/0001.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Youth Insearch",
+    "tags": ["Charity"],
+    "role": "Frontend Developer",
+    "tech": ["ASP.NET MVC", "Javascript", "LESS", "Jquery", "#C"],
+    "description": "Built and maintained website for a charity.",
+    "image_path": "/project-images/0002.jpg"
+  },
+  {
+    "id": 3,
+    "title": "MurphySchmidt",
+    "tags": ["Lawfirm", "Corporate Website"],
+    "role": "Frontend Developer",
+    "tech": ["ASP.NET MVC", "Javascript", "LESS", "Jquery", "#C"],
+    "description": "Built and maintained corporate website for a small lawfirm.",
+    "image_path": "/project-images/0003.jpg"
+  }     
+]

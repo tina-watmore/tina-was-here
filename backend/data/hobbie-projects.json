@@ -1,0 +1,39 @@
+
+[
+  {
+    "id": 1,
+    "title": "Expense Tracker",
+    "tags": ["App"],
+    "role": "Sole Developer",
+    "tech": ["React", "Javascript", "SASS"],
+    "description": "Built and maintained app to track expenses.",
+    "image_path": "/hobbie-images/0001.png"
+  },
+  {
+    "id": 2,
+    "title": "Tina and Jason Website",
+    "tags": ["Personal Website"],
+    "role": "Frontend Developer",
+    "tech": ["ASP.NET MVC", "Javascript", "LESS", "Jquery", "#C", "Pintura React Plugin"],
+    "description": "Built and maintained website for personal hobbies.",
+    "image_path": "/hobbie-images/0002.png"
+  },
+  {
+    "id": 3,
+    "title": "Designer Website with Shopping Cart",
+    "tags": ["Shopping cart", "Personal website"],
+    "role": "Frontend Developer",
+    "tech": ["ASP.NET MVC", "React", "Javascript", "LESS", "Jquery", "#C"],
+    "description": "Built and maintained personal website with for a friend",
+    "image_path": "/hobbie-images/0003.png"
+  },
+  {
+    "id": 4,
+    "title": "Movie wishlist",
+    "tags": ["API", "Personal website", "Users"],
+    "role": "Frontend Developer",
+    "tech": ["React", "Javascript", "SASS", "Database"],
+    "description": "Built and maintained website for tracking movies we want to watch",
+    "image_path": "/hobbie-images/0003.png"
+  }       
+]
